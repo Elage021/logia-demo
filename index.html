@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOGIA – Assistant Logistique</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; max-width: 600px; margin: auto; }
+    h1 { color: #0A66C2; }
+    label, select, input, textarea, button { width: 100%; margin: 10px 0; padding: 8px; }
+    .result { margin-top: 15px; font-weight: bold; color: #008000; }
+  </style>
+</head>
+<body>
+
+  <h1>Bienvenue sur LOGIA</h1>
+
+  <button onclick="alert('Bienvenue ! Voici votre assistant IA.')">Discutez avec LOGIA</button>
+  
+  <a href="https://wa.me/221778582323" target="_blank">📱 Contact WhatsApp</a>
+
+  <h2>Simuler un achat</h2>
+  <label for="produit">Choisissez un produit :</label>
+  <select id="produit" onchange="simulerFret()">
+    <option value="">-- Sélectionner --</option>
+    <option value="riz">Riz</option>
+    <option value="tissus">Tissus</option>
+    <option value="batteries">Batteries</option>
+  </select>
+
+  <div class="result" id="resultat"></div>
+
+  <h2>Contactez-nous</h2>
+  <form onsubmit="alert('Message envoyé !'); return false;">
+    <input type="text" placeholder="Votre nom" required>
+    <input type="email" placeholder="Votre email" required>
+    <textarea placeholder="Votre message" rows="4"></textarea>
+    <button type="submit">Envoyer</button>
+  </form>
+
+  <script>
+    function simulerFret() {
+      const produit = document.getElementById('produit').value;
+      let resultat = "";
+
+      if (produit === "riz") {
+        resultat = "Fret maritime depuis l'Inde : 2 500 FCFA/kg – Délai estimé : 18 jours";
+      } else if (produit === "tissus") {
+        resultat = "Fret avion depuis la Chine : 5 200 FCFA/kg – Délai estimé : 7 jours";
+      } else if (produit === "batteries") {
+        resultat = "Fret maritime depuis la Turquie : 3 000 FCFA/kg – Délai estimé : 14 jours";
+      }
+
+      document.getElementById('resultat').textContent = resultat;
+    }
+  </script>
+
+</body>
+</html>
